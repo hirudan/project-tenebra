@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bigcn0k11rb54"]
+
+[ext_resource type="Texture2D" uid="uid://b6s1ryaw1twq0" path="res://Assets/Sprites/3rdParty/Objects/Lantern_Oil Lamp_Candle_Sconce_Campfire_PixyFantasy.png" id="1_6we1g"]
+[ext_resource type="Script" path="res://Scenes/Scripts/lantern.gd" id="1_13f6x"]
+[ext_resource type="Texture2D" uid="uid://cr3248chhon7l" path="res://Assets/Textures/Lighting/2d_lights_and_shadows_neutral_point_light.webp" id="2_aqyk2"]
+[ext_resource type="Texture2D" uid="uid://b7jte4becbdvp" path="res://Assets/Textures/Lighting/flashlight.png" id="4_riorj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkg20"]
+atlas = ExtResource("1_6we1g")
+region = Rect2(240, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lavmt"]
+atlas = ExtResource("1_6we1g")
+region = Rect2(272, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4tju"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkg20")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lavmt")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Lantern" type="Node2D"]
+script = ExtResource("1_13f6x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_p4tju")
+animation = &"on"
+
+[node name="AreaLight" type="PointLight2D" parent="."]
+position = Vector2(4, 1)
+scale = Vector2(1.15332, 1.15332)
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+texture = ExtResource("2_aqyk2")
+
+[node name="BeamLight" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 2.0
+texture = ExtResource("4_riorj")
+offset = Vector2(160, 0)
+texture_scale = 1.25

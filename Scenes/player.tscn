@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjb8ddkwnn0hc"]
+[gd_scene load_steps=22 format=3 uid="uid://bjb8ddkwnn0hc"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_h5o6h"]
 [ext_resource type="Texture2D" uid="uid://mktbfwss0vlk" path="res://Assets/Sprites/3rdParty/Characters/B_witch_idle.png" id="1_jv4ye"]
 [ext_resource type="Texture2D" uid="uid://dfafs1v1krbmu" path="res://Assets/Sprites/3rdParty/Characters/B_witch_run.png" id="2_rn0vf"]
+[ext_resource type="PackedScene" uid="uid://bigcn0k11rb54" path="res://Scenes/lantern.tscn" id="4_ee15c"]
+[ext_resource type="Texture2D" uid="uid://cr3248chhon7l" path="res://Assets/Textures/Lighting/2d_lights_and_shadows_neutral_point_light.webp" id="5_b22cl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca7h4"]
 atlas = ExtResource("1_jv4ye")
@@ -129,3 +131,11 @@ animation = &"walk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_xpnvk")
+
+[node name="Lantern" parent="." instance=ExtResource("4_ee15c")]
+position = Vector2(-5, 15)
+
+[node name="OmniLight" type="PointLight2D" parent="."]
+energy = 0.1
+texture = ExtResource("5_b22cl")
+texture_scale = 0.75

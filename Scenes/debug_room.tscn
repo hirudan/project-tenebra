@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://bkpcy2ddyeqwk"]
+
+[ext_resource type="PackedScene" uid="uid://bjb8ddkwnn0hc" path="res://Scenes/player.tscn" id="1_es3pv"]
+[ext_resource type="Texture2D" uid="uid://d2cwcxl4o6x54" path="res://icon.svg" id="3_v7wot"]
+[ext_resource type="Texture2D" uid="uid://cr3248chhon7l" path="res://Assets/Textures/Lighting/2d_lights_and_shadows_neutral_point_light.webp" id="4_p18ct"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3wdxg"]
+noise_type = 3
+frequency = 0.1428
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qqhfv"]
+noise = SubResource("FastNoiseLite_3wdxg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tihup"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vmmgm"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tlxb5"]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="DebugRoom" type="Node2D"]
+
+[node name="bkgd" type="Sprite2D" parent="."]
+position = Vector2(575.5, 326)
+scale = Vector2(17.9531, 10.125)
+texture = SubResource("NoiseTexture2D_qqhfv")
+
+[node name="Player" parent="." instance=ExtResource("1_es3pv")]
+position = Vector2(566, 304)
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(500, 500)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+shape = SubResource("RectangleShape2D_tihup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+position = Vector2(0, 0.599999)
+scale = Vector2(0.154688, 0.156362)
+texture = ExtResource("3_v7wot")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle"]
+position = Vector2(0, 0.599999)
+scale = Vector2(0.154688, 0.156362)
+occluder = SubResource("OccluderPolygon2D_vmmgm")
+
+[node name="Obstacle1" type="StaticBody2D" parent="."]
+position = Vector2(600, 200)
+scale = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle1"]
+shape = SubResource("RectangleShape2D_tihup")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle1"]
+position = Vector2(0, 0.599999)
+scale = Vector2(0.154688, 0.156362)
+texture = ExtResource("3_v7wot")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Obstacle1"]
+position = Vector2(0, 0.599999)
+scale = Vector2(0.154688, 0.156362)
+occluder = SubResource("OccluderPolygon2D_tlxb5")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(3.05176e-05, 3.05176e-05)
+color = Color(0, 0, 0, 1)
+
+[node name="SceneLight" type="PointLight2D" parent="."]
+position = Vector2(574, 329.5)
+scale = Vector2(4.47656, 2.58203)
+energy = 0.1
+texture = ExtResource("4_p18ct")
