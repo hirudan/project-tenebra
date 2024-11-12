@@ -15,6 +15,7 @@ export_presets.cfg
 data_*/
 mono_crash.*.json
 
-# Non-redistributable sprite assets
+# Non-redistributable assets
 Assets/Sprites/3rdParty/
+Assets/Textures/3rdParty/
 

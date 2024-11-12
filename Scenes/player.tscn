@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bjb8ddkwnn0hc"]
+[gd_scene load_steps=23 format=3 uid="uid://bjb8ddkwnn0hc"]
 
 [ext_resource type="Script" path="res://Scenes/Scripts/player.gd" id="1_h5o6h"]
 [ext_resource type="Texture2D" uid="uid://mktbfwss0vlk" path="res://Assets/Sprites/3rdParty/Characters/B_witch_idle.png" id="1_jv4ye"]
 [ext_resource type="Texture2D" uid="uid://dfafs1v1krbmu" path="res://Assets/Sprites/3rdParty/Characters/B_witch_run.png" id="2_rn0vf"]
 [ext_resource type="PackedScene" uid="uid://bigcn0k11rb54" path="res://Scenes/lantern.tscn" id="4_ee15c"]
 [ext_resource type="Texture2D" uid="uid://cr3248chhon7l" path="res://Assets/Textures/Lighting/2d_lights_and_shadows_neutral_point_light.webp" id="5_b22cl"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tio01"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ca7h4"]
 atlas = ExtResource("1_jv4ye")
@@ -121,9 +124,12 @@ animations = [{
 size = Vector2(20, 36)
 
 [node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+motion_mode = 1
 script = ExtResource("1_h5o6h")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_tio01")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2uawv")
 animation = &"walk"
