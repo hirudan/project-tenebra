@@ -50,13 +50,14 @@ animation = &"on"
 position = Vector2(4, 1)
 scale = Vector2(1.15332, 1.15332)
 color = Color(1, 0.788615, 0.473341, 1)
+energy = 0.5
 shadow_enabled = true
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 texture = ExtResource("2_aqyk2")
 
 [node name="AreaLightNonShadow" type="PointLight2D" parent="AreaLight"]
-visible = false
+energy = 0.5
 shadow_filter = 1
 shadow_filter_smooth = 2.0
 texture = ExtResource("2_aqyk2")
