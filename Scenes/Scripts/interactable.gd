@@ -1,4 +1,5 @@
 extends Area2D
+class_name Interactable
 
 @export var debug: bool = false
 @export var interact_limit_ct: int = -1

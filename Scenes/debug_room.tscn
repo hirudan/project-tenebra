@@ -21,7 +21,6 @@ scale = Vector2(4.51172, 649)
 texture = SubResource("GradientTexture1D_lmh24")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 position = Vector2(3.05176e-05, 3.05176e-05)
 color = Color(0.215902, 0.215902, 0.215902, 1)
 
@@ -39,11 +38,10 @@ tile_set = ExtResource("2_jadsf")
 position = Vector2(284, 218)
 
 [node name="Interactable" parent="." instance=ExtResource("4_mowpt")]
-position = Vector2(224, 233)
+position = Vector2(384, 143)
 debug = true
-trigger_on_player_touch = true
 repeat_last_action_on_limit_met = true
-messages = ["Hi!", "You interacted with me!", "It's so nice to be interacted with.", "Wow, you really like interacting with me. I like interacting with you too!", "Isn't life just grand?"]
+messages = ["It's pitch black outside.", "The rain is beating fiercely against the window.", "It makes you glad you're in here.", "The rain and darkness outside make you glad you're in here."]
 
 [connection signal="area_entered" from="Interactable" to="." method="_on_interactable_area_entered"]
 [connection signal="body_entered" from="Interactable" to="." method="_on_interactable_body_entered"]

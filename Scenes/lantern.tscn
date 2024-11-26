@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bigcn0k11rb54"]
+[gd_scene load_steps=10 format=3 uid="uid://bigcn0k11rb54"]
 
 [ext_resource type="Texture2D" uid="uid://b6s1ryaw1twq0" path="res://Assets/Sprites/3rdParty/Objects/Lantern_Oil Lamp_Candle_Sconce_Campfire_PixyFantasy.png" id="1_6we1g"]
 [ext_resource type="Script" path="res://Scenes/Scripts/lantern.gd" id="1_13f6x"]
@@ -7,6 +7,8 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0tf6o"]
 light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_huhmc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkg20"]
 atlas = ExtResource("1_6we1g")
@@ -41,7 +43,7 @@ material = SubResource("CanvasItemMaterial_0tf6o")
 script = ExtResource("1_13f6x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-use_parent_material = true
+material = SubResource("CanvasItemMaterial_huhmc")
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_p4tju")
 animation = &"on"
